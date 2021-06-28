@@ -7,28 +7,64 @@ from kivy.metrics import dp
 
 #from kivymd.uix.button import MDRectangleFlatButton
 
+tabelka = [
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Jon", "Edler", "my@test.br", "123/8888999"),
+                ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+                ("Inga", "Mendel", "inga.mendel@test.de", "+49 123 / 888 899 9")
+            ]
 
 class MainApp(MDApp):
+    title = "Ipoteka Kalkulator"
+    by_who = "Author Alexander Fortowski"
+
     def build(self):
         # Opredelim Screen
         screen = Screen()
         # Opredelim Tablizu
         table = MDDataTable(
-            orientation="lr-tb",
+            #orientation="lr-tb",
             pos_hint = {'center_x': 0.5, 'center_y': 0.5},
             size_hint = (0.9, 0.6),
             check = True,
+            use_pagination = True,
+            rows_num = 3,
+            pagination_menu_height = '240dp',
+            pagination_menu_pos = "auto",   # center
+            #background_color = [1,0,0,.5],   # [r,g,b,transparensy]
             column_data = [
-                ("First Name", dp(30)),
-                ("Last Name", dp(30)),
-                ("Email", dp(30)),
-                ("Phone", dp(30))
+                ("Vorname", dp(30)),
+                ("Nachname", dp(30)),
+                ("Email", dp(25)),
+                ("Phone", dp(25))
             ],
-            row_data = [
-                ("Jon", "Edler", "meil@test.de", "123/8888999"),
-                ("Jon", "Edler", "meil@test.de", "123/8888999"),
-                ("Jon", "Edler", "meil@test.de", "123/8888999")
-            ]
+            row_data = tabelka
+            #[
+            #    ("Jon", "Edler", "my@test.br", "123/8888999"),
+            #    ("Paul", "Louvat", "p.louvat@test.fr", "123/8888999"),
+            #    ("Inga", "Mendel", "inga.mendel@test.de", "+49 123 / 888 899 9")
+            #]
         )
         # Bind the table
         table.bind()
